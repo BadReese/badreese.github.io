@@ -1,21 +1,36 @@
-{% include header.html %}
+<!DOCTYPE html>
+<html>
 
-    {% include title-group.html %}
+  {% include head.html %}
 
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
+  <body class="{{ page.body_class }}">
 
-                    {% for post in paginator.posts %}
-                      {% include tile.html %}
-                    {% endfor %}
+    {{ content }}
 
-                    {% include pagination.html %}
+    {{ if site.logo}}
+    <a href="{{ site.baseurl | prepend: site.url }}" id="blog_badge">
+            <span style="background-image:
+            url('{{ site.baseurl }}/assets/images/{{ site.logo }}');">{{ site.name }}</span>
+        </a>
+    {{/if}}
 
-                </div>
-            </div>
-        </div>
-    </main>
+    <script>
+      function no_schema_links () {
+        var links = document.querySelectorAll('.js-remove-domain-schema');
+        if (links) {
+          for (i = 0; i < links.length; ++i) {
+            var link = links[i],
+              text = link.innerHTML,
+            no_schema = text.replace(/.*?:\/\//g, "");
+            link.innerHTML = no_schema;
+          }
+        }
+      }
 
-{% include footer.html %}
+      window.onload = function () {
+        no_schema_links();
+      }
+    </script>
+  </body>
+
+</html>
