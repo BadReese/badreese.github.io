@@ -6,8 +6,8 @@ description: > # this means to ignore newlines until "url:"
   我们都在变得麻木不仁.
 url: "http://goalsome.cn" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
-twitter_username: reese
-github_username:  reese
+twitter_username: BadReese
+github_username:  BadReese
 
 permalink: pretty
 paginate: 5
